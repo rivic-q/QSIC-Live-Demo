@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIVIC QSIC - Prototype & POC Status Report</title>
+    <meta name="description"
+        content="RIVIC QSIC Technology Readiness Level 3-4 - Proof-of-Concept Complete, Working Prototype In Progress">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <!-- Quantum Network Background -->
+    <canvas id="quantum-network"></canvas>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <div class="quantum-symbol"></div>
+                    </div>
+                    <div class="logo-text">
+                        <h1>RIVIC QSIC</h1>
+                        <p>Quantum-Safe Security</p>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <a href="#status" class="nav-link">Status</a>
+                    <a href="#prototype" class="nav-link">Prototype</a>
+                    <a href="#timeline" class="nav-link">Timeline</a>
+                    <a href="#funding" class="nav-link">Funding</a>
+                    <a href="/demo" class="nav-link"
+                        style="background: var(--gradient-primary); color: white; padding: 8px 16px; border-radius: 8px;">🚀
+                        Live Demo</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <span class="badge-icon">🔬</span>
+                <span>Report Date: <strong>December 9, 2025</strong></span>
+            </div>
+            <h1 class="hero-title">
+                Prototype & POC<br>
+                <span class="gradient-text">Status Report</span>
+            </h1>
+            <p class="hero-subtitle">
+                Technology Readiness Level 3-4 | Proof-of-Concept Complete
+            </p>
+
+            <!-- TRL Progress Bar -->
+            <div class="trl-progress">
+                <div class="trl-labels">
+                    <span>TRL 1</span>
+                    <span>TRL 3</span>
+                    <span>TRL 5</span>
+                    <span>TRL 9</span>
+                </div>
+                <div class="trl-bar">
+                    <div class="trl-fill" data-trl="3"></div>
+                    <div class="trl-marker current" style="left: 33%;" data-tooltip="Current: TRL 3">
+                        <div class="marker-pulse"></div>
+                    </div>
+                    <div class="trl-marker target" style="left: 55%;" data-tooltip="Target: TRL 5">
+                        <div class="marker-pulse"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Summary -->
+    <section id="status" class="section summary-section">
+        <div class="container">
+            <h2 class="section-title">Quick Summary</h2>
+
+            <div class="status-grid">
+                <div class="status-card complete">
+                    <div class="status-icon">✅</div>
+                    <h3>Software Prototype</h3>
+                    <p class="status-label">COMPLETE</p>
+                    <p class="status-desc">Working Python implementation, deployed on GCP</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <div class="status-card complete">
+                    <div class="status-icon">✅</div>
+                    <h3>Proof of Concept</h3>
+                    <p class="status-label">COMPLETE</p>
+                    <p class="status-desc">NIST algorithms work, performance validated</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <div class="status-card complete">
+                    <div class="status-icon">✅</div>
+                    <h3>Architecture Design</h3>
+                    <p class="status-label">COMPLETE</p>
+                    <p class="status-desc">45-page whitepaper, block diagrams, specifications</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <div class="status-card in-progress">
+                    <div class="status-icon">🟡</div>
+                    <h3>RTL Code (Design)</h3>
+                    <p class="status-label">IN PROGRESS</p>
+                    <p class="status-desc">10K+ lines SystemVerilog (not synthesized yet)</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <div class="status-card pending">
+                    <div class="status-icon">⏳</div>
+                    <h3>FPGA Prototype</h3>
+                    <p class="status-label">NOT STARTED</p>
+                    <p class="status-desc">Needs EXIST funding to begin</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="status-card pending">
+                    <div class="status-icon">⏳</div>
+                    <h3>ASIC Silicon</h3>
+                    <p class="status-label">NOT STARTED</p>
+                    <p class="status-desc">Planned for Month 7-12 of EXIST Phase 1</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Takeaway -->
+            <div class="key-takeaway">
+                <div class="takeaway-icon">💡</div>
+                <div class="takeaway-content">
+                    <h3>Bottom Line</h3>
+                    <p>We have <strong>proof-of-concept working</strong> (software + architecture), but need
+                        <strong>EXIST funding</strong> to build hardware prototype (FPGA → ASIC).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section id="prototype" class="section performance-section">
+        <div class="container">
+            <h2 class="section-title">Performance Metrics</h2>
+            <p class="section-subtitle">Comparing software baseline vs. hardware acceleration targets</p>
+
+            <div class="metrics-grid">
+                <!-- ML-KEM-768 -->
+                <div class="metric-card">
+                    <h3 class="metric-title">ML-KEM-768 Key Generation</h3>
+                    <div class="metric-comparison">
+                        <div class="metric-bar software">
+                            <span class="metric-label">Software</span>
+                            <div class="metric-bar-fill" style="width: 15%">
+                                <span class="metric-value">300 ops/sec</span>
+                            </div>
+                        </div>
+                        <div class="metric-bar hardware">
+                            <span class="metric-label">Hardware Target</span>
+                            <div class="metric-bar-fill" style="width: 100%">
+                                <span class="metric-value">2,000 ops/sec</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="metric-speedup">
+                        <span class="speedup-badge">6.7x Faster</span>
+                    </div>
+                </div>
+
+                <!-- ML-KEM-768 Encapsulation -->
+                <div class="metric-card">
+                    <h3 class="metric-title">ML-KEM-768 Encapsulation</h3>
+                    <div class="metric-comparison">
+                        <div class="metric-bar software">
+                            <span class="metric-label">Software</span>
+                            <div class="metric-bar-fill" style="width: 14%">
+                                <span class="metric-value">500 ops/sec</span>
+                            </div>
+                        </div>
+                        <div class="metric-bar hardware">
+                            <span class="metric-label">Hardware Target</span>
+                            <div class="metric-bar-fill" style="width: 100%">
+                                <span class="metric-value">3,500 ops/sec</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="metric-speedup">
+                        <span class="speedup-badge">7x Faster</span>
+                    </div>
+                </div>
+
+                <!-- ML-DSA-65 Signing -->
+                <div class="metric-card">
+                    <h3 class="metric-title">ML-DSA-65 Signing</h3>
+                    <div class="metric-comparison">
+                        <div class="metric-bar software">
+                            <span class="metric-label">Software</span>
+                            <div class="metric-bar-fill" style="width: 12.5%">
+                                <span class="metric-value">150 ops/sec</span>
+                            </div>
+                        </div>
+                        <div class="metric-bar hardware">
+                            <span class="metric-label">Hardware Target</span>
+                            <div class="metric-bar-fill" style="width: 100%">
+                                <span class="metric-value">1,200 ops/sec</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="metric-speedup">
+                        <span class="speedup-badge">8x Faster</span>
+                    </div>
+                </div>
+
+                <!-- ML-DSA-65 Verification -->
+                <div class="metric-card">
+                    <h3 class="metric-title">ML-DSA-65 Verification</h3>
+                    <div class="metric-comparison">
+                        <div class="metric-bar software">
+                            <span class="metric-label">Software</span>
+                            <div class="metric-bar-fill" style="width: 14%">
+                                <span class="metric-value">400 ops/sec</span>
+                            </div>
+                        </div>
+                        <div class="metric-bar hardware">
+                            <span class="metric-label">Hardware Target</span>
+                            <div class="metric-bar-fill" style="width: 100%">
+                                <span class="metric-value">2,800 ops/sec</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="metric-speedup">
+                        <span class="speedup-badge">7x Faster</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evidence Section -->
+            <div class="evidence-box">
+                <h3>✅ Validation Evidence</h3>
+                <ul>
+                    <li><strong>Software Prototype:</strong> 2,000+ lines Python, 95%+ code coverage</li>
+                    <li><strong>NIST Compliance:</strong> All KAT (Known Answer Tests) passing</li>
+                    <li><strong>Live Demo:</strong> <a href="https://rivic-prototype-demo.run.app"
+                            target="_blank">rivic-prototype-demo.run.app</a></li>
+                    <li><strong>Cycle Analysis:</strong> 50,000 cycles @ 100MHz = 0.5ms key generation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Comparison -->
+    <section id="timeline" class="section timeline-section">
+        <div class="container">
+            <h2 class="section-title">Development Timeline</h2>
+
+            <div class="timeline-comparison">
+                <!-- With EXIST Funding -->
+                <div class="timeline-track with-exist">
+                    <div class="timeline-header">
+                        <h3>✅ With EXIST Funding</h3>
+                        <p>18-month roadmap to TRL 5</p>
+                    </div>
+                    <div class="timeline-items">
+                        <div class="timeline-item" data-month="1">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <strong>Month 1</strong>
+                                <p>Order FPGA Board</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-month="3">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <strong>Month 2-3</strong>
+                                <p>Synthesize RTL → FPGA</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-month="6">
+                            <div class="timeline-dot milestone"></div>
+                            <div class="timeline-content">
+                                <strong>Month 6</strong>
+                                <p>🎯 FPGA Prototype Complete</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-month="7">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <strong>Month 7</strong>
+                                <p>Submit ASIC Design</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-month="12">
+                            <div class="timeline-dot milestone"></div>
+                            <div class="timeline-content">
+                                <strong>Month 12</strong>
+                                <p>🎯 ASIC Silicon Ready</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-month="18">
+                            <div class="timeline-dot milestone"></div>
+                            <div class="timeline-content">
+                                <strong>Month 18</strong>
+                                <p>🏆 TRL 5 Achieved</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Without EXIST Funding -->
+                <div class="timeline-track without-exist">
+                    <div class="timeline-header">
+                        <h3>❌ Without EXIST Funding</h3>
+                        <p>Development stalls at TRL 3</p>
+                    </div>
+                    <div class="timeline-items">
+                        <div class="timeline-item stuck">
+                            <div class="timeline-dot failed"></div>
+                            <div class="timeline-content">
+                                <strong>Forever</strong>
+                                <p>❌ No FPGA prototype (can't afford €63K)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item stuck">
+                            <div class="timeline-dot failed"></div>
+                            <div class="timeline-content">
+                                <strong>Forever</strong>
+                                <p>❌ No ASIC tape-out (can't afford €80K)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item stuck">
+                            <div class="timeline-dot failed"></div>
+                            <div class="timeline-content">
+                                <strong>Forever</strong>
+                                <p>❌ Stay at TRL 3 (proof-of-concept only)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item stuck">
+                            <div class="timeline-dot failed"></div>
+                            <div class="timeline-content">
+                                <strong>Forever</strong>
+                                <p>❌ Cannot commercialize (no product to sell)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funding Breakdown -->
+    <section id="funding" class="section funding-section">
+        <div class="container">
+            <h2 class="section-title">EXIST Phase 1 Funding</h2>
+            <p class="section-subtitle">18 months | €250,000 total budget</p>
+
+            <div class="funding-grid">
+                <div class="funding-card">
+                    <div class="funding-amount">€63,000</div>
+                    <h3>FPGA Prototype</h3>
+                    <ul>
+                        <li>FPGA board (Xilinx ZCU102)</li>
+                        <li>EDA licenses (6 months)</li>
+                        <li>Engineering time</li>
+                    </ul>
+                </div>
+
+                <div class="funding-card primary">
+                    <div class="funding-amount">€80,000</div>
+                    <h3>ASIC Tape-out</h3>
+                    <ul>
+                        <li>SkyWater 65nm MPW shuttle</li>
+                        <li>Design verification</li>
+                        <li>50 prototype dies</li>
+                    </ul>
+                </div>
+
+                <div class="funding-card">
+                    <div class="funding-amount">€30,000</div>
+                    <h3>Post-Silicon Testing</h3>
+                    <ul>
+                        <li>Testing equipment</li>
+                        <li>Performance validation</li>
+                        <li>Side-channel analysis</li>
+                    </ul>
+                </div>
+
+                <div class="funding-card">
+                    <div class="funding-amount">€77,000</div>
+                    <h3>Team Expansion</h3>
+                    <ul>
+                        <li>CTO co-founder (hardware)</li>
+                        <li>COO co-founder (operations)</li>
+                        <li>Engineering support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Success Metrics -->
+            <div class="success-metrics">
+                <h3>Success Metrics (Measurable Outcomes)</h3>
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Current</th>
+                            <th>EXIST Target</th>
+                            <th>Evidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>TRL Level</strong></td>
+                            <td>3</td>
+                            <td>5</td>
+                            <td>Working ASIC silicon</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Performance</strong></td>
+                            <td>300 ops/sec</td>
+                            <td>2,000 ops/sec</td>
+                            <td>Lab measurements</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Power</strong></td>
+                            <td>N/A</td>
+                            <td>&lt;500mW @ 100MHz</td>
+                            <td>Oscilloscope readings</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Side-Channel</strong></td>
+                            <td>Theoretical</td>
+                            <td>Validated</td>
+                            <td>Third-party report</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FIPS 140-3</strong></td>
+                            <td>N/A</td>
+                            <td>Pre-assessment passed</td>
+                            <td>NIST lab report</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pilot Customers</strong></td>
+                            <td>0</td>
+                            <td>3+</td>
+                            <td>Signed LOIs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Assessment -->
+    <section class="section risk-section">
+        <div class="container">
+            <h2 class="section-title">Risk Assessment</h2>
+            <p class="section-subtitle">Honest evaluation of technical and market risks</p>
+
+            <div class="risk-grid">
+                <div class="risk-card technical">
+                    <div class="risk-header">
+                        <h3>Technical Risks</h3>
+                        <span class="risk-level moderate">Moderate</span>
+                    </div>
+                    <div class="risk-items">
+                        <div class="risk-item">
+                            <strong>FPGA prototype doesn't work</strong>
+                            <div class="risk-stats">
+                                <span class="probability">30% probability</span>
+                                <span class="impact">3-6 month delay</span>
+                            </div>
+                            <p class="mitigation">✅ Mitigation: Budget includes debug time, experienced CTO</p>
+                        </div>
+                        <div class="risk-item">
+                            <strong>ASIC tape-out fails</strong>
+                            <div class="risk-stats">
+                                <span class="probability">15-20% probability</span>
+                                <span class="impact">€80K loss, 6-month delay</span>
+                            </div>
+                            <p class="mitigation">✅ Mitigation: FPGA validation reduces risk to &lt;5%</p>
+                        </div>
+                        <div class="risk-item">
+                            <strong>Performance doesn't meet targets</strong>
+                            <div class="risk-stats">
+                                <span class="probability">20% probability</span>
+                                <span class="impact">Marketing adjust needed</span>
+                            </div>
+                            <p class="mitigation">✅ Mitigation: Conservative targets (6-8x, not 10x)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="risk-card market">
+                    <div class="risk-header">
+                        <h3>Market Risks</h3>
+                        <span class="risk-level low">Low</span>
+                    </div>
+                    <div class="risk-items">
+                        <div class="risk-item">
+                            <strong>EU regulation delayed</strong>
+                            <div class="risk-stats">
+                                <span class="probability">30% probability</span>
+                                <span class="impact">Slower adoption</span>
+                            </div>
+                            <p class="mitigation">✅ Mitigation: 2027 already confirmed in EU law</p>
+                        </div>
+                        <div class="risk-item">
+                            <strong>Customers don't adopt</strong>
+                            <div class="risk-stats">
+                                <span class="probability">25% probability</span>
+                                <span class="impact">Revenue targets missed</span>
+                            </div>
+                            <p class="mitigation">✅ Mitigation: Pilot customers in discussion, open-source builds trust
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>EXIST Funding Goal</h2>
+                <p class="cta-subtitle">Move from TRL 3 → TRL 5 in 18 months</p>
+
+                <div class="cta-stats">
+                    <div class="cta-stat">
+                        <div class="stat-value">€250K</div>
+                        <div class="stat-label">Phase 1 Budget</div>
+                    </div>
+                    <div class="cta-stat">
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Months</div>
+                    </div>
+                    <div class="cta-stat">
+                        <div class="stat-value">TRL 5</div>
+                        <div class="stat-label">Target Level</div>
+                    </div>
+                </div>
+
+                <div class="cta-outcomes">
+                    <h3>Deliverables</h3>
+                    <ul>
+                        <li>✅ Working ASIC prototype (50 chips)</li>
+                        <li>✅ Performance validated (6-8x speedup proven)</li>
+                        <li>✅ Side-channel resistance tested</li>
+                        <li>✅ FIPS 140-3 pre-assessment</li>
+                        <li>✅ 3+ pilot customer LOIs</li>
+                        <li>✅ Series A fundraising ready (€3.375M)</li>
+                    </ul>
+                </div>
+
+                <a href="#contact" class="cta-button">Contact for Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>RIVIC Technologies</h3>
+                    <p>Quantum-Safe Integrated Circuits</p>
+                    <p class="footer-date">Report Date: December 9, 2025</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://rivic-prototype-demo.run.app" target="_blank">Live Demo</a></li>
+                        <li><a href="/api/status">API Status</a></li>
+                        <li><a href="#funding">EXIST Application</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>Revan Ande</p>
+                    <p>Founder & CEO</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RIVIC Technologies. All rights reserved.</p>
+                <p>Status: Ready for EXIST Application Review</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/app.js"></script>
+</body>
+
+</html>

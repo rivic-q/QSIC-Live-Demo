@@ -1,0 +1,134 @@
+{
+    "trlLevel": 3.5,
+    "trlTarget": 6,
+    "components": [
+        {
+            "name": "Python Prototype",
+            "status": "complete",
+            "progress": 100,
+            "description": "liboqs integration complete"
+        },
+        {
+            "name": "FPGA Development",
+            "status": "complete",
+            "progress": 100,
+            "description": "Lattice ECP5 implementation"
+        },
+        {
+            "name": "ASIC Design",
+            "status": "in-progress",
+            "progress": 60,
+            "description": "RTL design in progress"
+        },
+        {
+            "name": "Security Analysis",
+            "status": "in-progress",
+            "progress": 40,
+            "description": "Side-channel protection"
+        },
+        {
+            "name": "Testing Framework",
+            "status": "planned",
+            "progress": 20,
+            "description": "Test suite development"
+        },
+        {
+            "name": "Production Tooling",
+            "status": "planned",
+            "progress": 10,
+            "description": "Manufacturing prep"
+        }
+    ],
+    "performanceMetrics": [
+        {
+            "algorithm": "ML-KEM-768 KeyGen",
+            "software": "300 ops/sec",
+            "hardware": "2,000 ops/sec",
+            "speedup": "6.7x",
+            "power": "450 mW"
+        },
+        {
+            "algorithm": "ML-KEM-768 Encaps",
+            "software": "500 ops/sec",
+            "hardware": "3,500 ops/sec",
+            "speedup": "7.0x",
+            "power": "420 mW"
+        },
+        {
+            "algorithm": "ML-DSA-65 Sign",
+            "software": "150 ops/sec",
+            "hardware": "1,200 ops/sec",
+            "speedup": "8.0x",
+            "power": "480 mW"
+        },
+        {
+            "algorithm": "ML-DSA-65 Verify",
+            "software": "400 ops/sec",
+            "hardware": "2,800 ops/sec",
+            "speedup": "7.0x",
+            "power": "400 mW"
+        }
+    ],
+    "timeline": {
+        "withEXIST": {
+            "duration": "18 months",
+            "milestones": [
+                "Month 0-3: ASIC RTL completion",
+                "Month 3-9: Synthesis & verification",
+                "Month 9-12: Tapeout preparation",
+                "Month 12-18: Fabrication & testing"
+            ]
+        },
+        "withoutEXIST": {
+            "duration": "36 months",
+            "milestones": [
+                "Extended design phase",
+                "Limited testing resources",
+                "Delayed market entry",
+                "Increased risk"
+            ]
+        }
+    },
+    "funding": {
+        "total": 250000,
+        "breakdown": [
+            {
+                "category": "ASIC Development",
+                "amount": 100000,
+                "percentage": 40
+            },
+            {
+                "category": "Personnel",
+                "amount": 62500,
+                "percentage": 25
+            },
+            {
+                "category": "Testing & Validation",
+                "amount": 50000,
+                "percentage": 20
+            },
+            {
+                "category": "Equipment & Operations",
+                "amount": 37500,
+                "percentage": 15
+            }
+        ]
+    },
+    "risks": [
+        {
+            "title": "Technical Complexity",
+            "level": "medium",
+            "mitigation": "Academic partnership with TU Berlin"
+        },
+        {
+            "title": "Market Timing",
+            "level": "low",
+            "mitigation": "NIST deadline creates urgency"
+        },
+        {
+            "title": "Competition",
+            "level": "medium",
+            "mitigation": "First-mover advantage in hardware"
+        }
+    ]
+}

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIVIC QSIC - Interactive Hardware Demo</title>
+    <meta name="description"
+        content="Interactive demonstration of RIVIC QSIC quantum-safe cryptography with hardware acceleration">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/demo.css">
+</head>
+
+<body>
+    <!-- Quantum Network Background -->
+    <canvas id="quantum-network"></canvas>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <div class="quantum-symbol"></div>
+                    </div>
+                    <div class="logo-text">
+                        <h1>RIVIC QSIC</h1>
+                        <p>Interactive Demo</p>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <a href="/" class="nav-link">← Back to Status</a>
+                    <a href="#operations" class="nav-link">Operations</a>
+                    <a href="#hardware" class="nav-link">Hardware</a>
+                    <a href="#use-cases" class="nav-link">Use Cases</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero demo-hero">
+        <div class="container">
+            <div class="hero-badge">
+                <span class="badge-icon">🔐</span>
+                <span>Live Interactive Demo</span>
+            </div>
+            <h1 class="hero-title">
+                Software + Hardware<br>
+                <span class="gradient-text">Integration Demo</span>
+            </h1>
+            <p class="hero-subtitle">
+                Experience quantum-safe cryptography with hardware acceleration
+            </p>
+        </div>
+    </section>
+
+    <!-- Mode Selector -->
+    <section class="section mode-selector-section">
+        <div class="container">
+            <h2 class="section-title">Choose Execution Mode</h2>
+            <div class="mode-grid">
+                <div class="mode-card" id="software-mode">
+                    <div class="mode-icon">💻</div>
+                    <h3>Software Only</h3>
+                    <p>Current Python prototype</p>
+                    <div class="mode-stats">
+                        <span class="stat">300 ops/sec</span>
+                        <span class="stat-label">ML-KEM KeyGen</span>
+                    </div>
+                    <button class="mode-button" data-mode="software">Use Software</button>
+                </div>
+
+                <div class="mode-card featured" id="hardware-mode">
+                    <div class="mode-badge">SIMULATED</div>
+                    <div class="mode-icon">⚡</div>
+                    <h3>Hardware Accelerated</h3>
+                    <p>QSIC ASIC with NTT acceleration</p>
+                    <div class="mode-stats">
+                        <span class="stat">2,000 ops/sec</span>
+                        <span class="stat-label">ML-KEM KeyGen</span>
+                    </div>
+                    <button class="mode-button" data-mode="hardware">Use Hardware</button>
+                </div>
+            </div>
+
+            <div class="active-mode-indicator">
+                <span class="indicator-label">Active Mode:</span>
+                <span class="indicator-value" id="active-mode">Software</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cryptographic Operations -->
+    <section id="operations" class="section operations-section">
+        <div class="container">
+            <h2 class="section-title">Cryptographic Operations</h2>
+
+            <div class="operations-grid">
+                <!-- ML-KEM Key Generation -->
+                <div class="operation-card">
+                    <div class="operation-header">
+                        <h3>ML-KEM-768 Key Generation</h3>
+                        <span class="operation-badge">NIST Standard</span>
+                    </div>
+
+                    <div class="operation-controls">
+                        <button class="operation-button" id="keygen-button">
+                            <span class="button-icon">🔑</span>
+                            Generate Key Pair
+                        </button>
+                    </div>
+
+                    <div class="operation-output" id="keygen-output">
+                        <div class="output-placeholder">
+                            <p>Click "Generate Key Pair" to create quantum-safe keys</p>
+                        </div>
+                    </div>
+
+                    <div class="operation-metrics">
+                        <div class="metric-item">
+                            <span class="metric-label">Execution Time</span>
+                            <span class="metric-value" id="keygen-time">-</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Public Key Size</span>
+                            <span class="metric-value">1,184 bytes</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Private Key Size</span>
+                            <span class="metric-value">2,400 bytes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ML-KEM Encapsulation -->
+                <div class="operation-card">
+                    <div class="operation-header">
+                        <h3>ML-KEM-768 Encapsulation</h3>
+                        <span class="operation-badge">Key Exchange</span>
+                    </div>
+
+                    <div class="operation-controls">
+                        <button class="operation-button" id="encaps-button">
+                            <span class="button-icon">🔒</span>
+                            Encapsulate Secret
+                        </button>
+                    </div>
+
+                    <div class="operation-output" id="encaps-output">
+                        <div class="output-placeholder">
+                            <p>Generate keys first, then encapsulate a shared secret</p>
+                        </div>
+                    </div>
+
+                    <div class="operation-metrics">
+                        <div class="metric-item">
+                            <span class="metric-label">Execution Time</span>
+                            <span class="metric-value" id="encaps-time">-</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Ciphertext Size</span>
+                            <span class="metric-value">1,088 bytes</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Shared Secret</span>
+                            <span class="metric-value">32 bytes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ML-DSA Signing -->
+                <div class="operation-card">
+                    <div class="operation-header">
+                        <h3>ML-DSA-65 Digital Signature</h3>
+                        <span class="operation-badge">Authentication</span>
+                    </div>
+
+                    <div class="operation-controls">
+                        <textarea id="message-input" class="message-input" placeholder="Enter message to sign..."
+                            rows="3">Hello from RIVIC QSIC! This is a quantum-safe signature.</textarea>
+                        <button class="operation-button" id="sign-button">
+                            <span class="button-icon">✍️</span>
+                            Sign Message
+                        </button>
+                    </div>
+
+                    <div class="operation-output" id="sign-output">
+                        <div class="output-placeholder">
+                            <p>Enter a message and click "Sign Message"</p>
+                        </div>
+                    </div>
+
+                    <div class="operation-metrics">
+                        <div class="metric-item">
+                            <span class="metric-label">Execution Time</span>
+                            <span class="metric-value" id="sign-time">-</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Signature Size</span>
+                            <span class="metric-value">3,309 bytes</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Security Level</span>
+                            <span class="metric-value">NIST Level 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ML-DSA Verification -->
+                <div class="operation-card">
+                    <div class="operation-header">
+                        <h3>ML-DSA-65 Verification</h3>
+                        <span class="operation-badge">Validation</span>
+                    </div>
+
+                    <div class="operation-controls">
+                        <button class="operation-button" id="verify-button">
+                            <span class="button-icon">✅</span>
+                            Verify Signature
+                        </button>
+                    </div>
+
+                    <div class="operation-output" id="verify-output">
+                        <div class="output-placeholder">
+                            <p>Sign a message first, then verify the signature</p>
+                        </div>
+                    </div>
+
+                    <div class="operation-metrics">
+                        <div class="metric-item">
+                            <span class="metric-label">Execution Time</span>
+                            <span class="metric-value" id="verify-time">-</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Status</span>
+                            <span class="metric-value" id="verify-status">Not verified</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Algorithm</span>
+                            <span class="metric-value">ML-DSA-65</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hardware Visualization -->
+    <section id="hardware" class="section hardware-section">
+        <div class="container">
+            <h2 class="section-title">Hardware Architecture Visualization</h2>
+            <p class="section-subtitle">Real-time view of QSIC ASIC internal processing</p>
+
+            <div class="hardware-diagram">
+                <!-- CPU Interface -->
+                <div class="hw-block cpu-interface">
+                    <div class="hw-block-header">
+                        <h4>CPU Interface</h4>
+                        <div class="hw-status" id="cpu-status"></div>
+                    </div>
+                    <div class="hw-block-content">
+                        <div class="hw-data-flow" id="cpu-data"></div>
+                    </div>
+                </div>
+
+                <!-- Control Unit -->
+                <div class="hw-block control-unit">
+                    <div class="hw-block-header">
+                        <h4>Control Unit</h4>
+                        <div class="hw-status" id="control-status"></div>
+                    </div>
+                    <div class="hw-block-content">
+                        <div class="hw-register">
+                            <span>State:</span>
+                            <span id="control-state">IDLE</span>
+                        </div>
+                        <div class="hw-register">
+                            <span>Op:</span>
+                            <span id="control-op">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NTT Accelerator -->
+                <div class="hw-block ntt-accelerator">
+                    <div class="hw-block-header">
+                        <h4>NTT Accelerator</h4>
+                        <div class="hw-status" id="ntt-status"></div>
+                    </div>
+                    <div class="hw-block-content">
+                        <div class="ntt-butterflies">
+                            <div class="butterfly-unit" data-unit="0"></div>
+                            <div class="butterfly-unit" data-unit="1"></div>
+                            <div class="butterfly-unit" data-unit="2"></div>
+                            <div class="butterfly-unit" data-unit="3"></div>
+                            <div class="butterfly-unit" data-unit="4"></div>
+                            <div class="butterfly-unit" data-unit="5"></div>
+                            <div class="butterfly-unit" data-unit="6"></div>
+                            <div class="butterfly-unit" data-unit="7"></div>
+                        </div>
+                        <div class="hw-metric">
+                            <span>Cycles:</span>
+                            <span id="ntt-cycles">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memory Subsystem -->
+                <div class="hw-block memory-subsystem">
+                    <div class="hw-block-header">
+                        <h4>Memory (256KB SRAM)</h4>
+                        <div class="hw-status" id="memory-status"></div>
+                    </div>
+                    <div class="hw-block-content">
+                        <div class="memory-visualization">
+                            <div class="memory-bar">
+                                <div class="memory-fill" id="memory-fill"></div>
+                            </div>
+                            <div class="memory-stats">
+                                <span>Used: <span id="memory-used">0</span> KB</span>
+                                <span>Total: 256 KB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Features -->
+                <div class="hw-block security-features">
+                    <div class="hw-block-header">
+                        <h4>Security Module</h4>
+                        <div class="hw-status active"></div>
+                    </div>
+                    <div class="hw-block-content">
+                        <div class="security-indicator">
+                            <span class="security-icon">🛡️</span>
+                            <span>DPA Masking: Active</span>
+                        </div>
+                        <div class="security-indicator">
+                            <span class="security-icon">⏱️</span>
+                            <span>Constant-Time: Yes</span>
+                        </div>
+                        <div class="security-indicator">
+                            <span class="security-icon">🎲</span>
+                            <span>TRNG: Running</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Monitor -->
+                <div class="hw-block performance-monitor">
+                    <div class="hw-block-header">
+                        <h4>Performance Monitor</h4>
+                        <div class="hw-status" id="perf-status"></div>
+                    </div>
+                    <div class="hw-block-content">
+                        <div class="hw-metric">
+                            <span>Clock:</span>
+                            <span id="hw-clock">100 MHz</span>
+                        </div>
+                        <div class="hw-metric">
+                            <span>Power:</span>
+                            <span id="hw-power">0 mW</span>
+                        </div>
+                        <div class="hw-metric">
+                            <span>Temp:</span>
+                            <span id="hw-temp">45°C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Processing Visualization -->
+            <div class="processing-timeline">
+                <h3>Operation Timeline</h3>
+                <div class="timeline-track">
+                    <canvas id="timeline-canvas"></canvas>
+                </div>
+                <div class="timeline-legend">
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: hsl(220, 100%, 60%)"></span>
+                        <span>CPU Processing</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: hsl(150, 80%, 50%)"></span>
+                        <span>NTT Acceleration</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: hsl(280, 100%, 65%)"></span>
+                        <span>Memory Access</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section id="use-cases" class="section use-cases-section">
+        <div class="container">
+            <h2 class="section-title">Real-World Use Cases</h2>
+            <p class="section-subtitle">See how RIVIC QSIC solves actual industry problems</p>
+
+            <div class="use-case-tabs">
+                <button class="use-case-tab active" data-usecase="automotive">🚗 Automotive V2X</button>
+                <button class="use-case-tab" data-usecase="iot">📡 IoT Devices</button>
+                <button class="use-case-tab" data-usecase="enterprise">🏢 Enterprise HSM</button>
+            </div>
+
+            <!-- Automotive V2X Use Case -->
+            <div class="use-case-content active" id="usecase-automotive">
+                <div class="use-case-grid">
+                    <div class="use-case-description">
+                        <h3>Automotive V2X Communication</h3>
+                        <p><strong>Challenge:</strong> Modern vehicles need to authenticate 10,000+ messages per second
+                            for vehicle-to-vehicle (V2V) and vehicle-to-infrastructure (V2I) communication.</p>
+
+                        <div class="use-case-requirements">
+                            <h4>Requirements</h4>
+                            <ul>
+                                <li>✅ <strong>Latency:</strong> &lt;100ms per handshake</li>
+                                <li>✅ <strong>Throughput:</strong> 10,000 ops/sec</li>
+                                <li>✅ <strong>Security:</strong> Quantum-safe (EU 2027 mandate)</li>
+                                <li>✅ <strong>Power:</strong> &lt;5W (automotive-grade)</li>
+                                <li>✅ <strong>Compliance:</strong> ISO 26262 (functional safety)</li>
+                            </ul>
+                        </div>
+
+                        <div class="use-case-solution">
+                            <h4>RIVIC QSIC Solution</h4>
+                            <p>Hardware-accelerated ML-DSA signatures enable real-time V2X authentication with 6-8x
+                                performance improvement over software.</p>
+                        </div>
+                    </div>
+
+                    <div class="use-case-demo">
+                        <div class="v2x-simulation">
+                            <div class="v2x-scenario">
+                                <div class="vehicle" id="vehicle-1">
+                                    <span class="vehicle-icon">🚗</span>
+                                    <span class="vehicle-label">Vehicle A</span>
+                                </div>
+                                <div class="vehicle" id="vehicle-2">
+                                    <span class="vehicle-icon">🚙</span>
+                                    <span class="vehicle-label">Vehicle B</span>
+                                </div>
+                                <div class="infrastructure" id="traffic-light">
+                                    <span class="infra-icon">🚦</span>
+                                    <span class="infra-label">Traffic Light</span>
+                                </div>
+                                <div class="message-flow" id="v2x-messages"></div>
+                            </div>
+                            <button class="demo-button" id="v2x-demo-button">
+                                <span>▶️ Start V2X Demo</span>
+                            </button>
+                            <div class="demo-stats">
+                                <div class="stat-box">
+                                    <span class="stat-value" id="v2x-messages-sent">0</span>
+                                    <span class="stat-label">Messages Signed</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-value" id="v2x-latency">0ms</span>
+                                    <span class="stat-label">Avg Latency</span>
+                                </div>
+                                <div class="stat-box success">
+                                    <span class="stat-value" id="v2x-success">100%</span>
+                                    <span class="stat-label">Success Rate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IoT Use Case -->
+            <div class="use-case-content" id="usecase-iot">
+                <div class="use-case-grid">
+                    <div class="use-case-description">
+                        <h3>IoT Device Security</h3>
+                        <p><strong>Challenge:</strong> Low-power IoT devices need quantum-safe encryption without
+                            draining battery or requiring expensive processors.</p>
+
+                        <div class="use-case-requirements">
+                            <h4>Requirements</h4>
+                            <ul>
+                                <li>✅ <strong>Power:</strong> &lt;500mW average</li>
+                                <li>✅ <strong>Cost:</strong> &lt;$10 per device</li>
+                                <li>✅ <strong>Security:</strong> Post-quantum cryptography</li>
+                                <li>✅ <strong>Performance:</strong> 100+ ops/sec</li>
+                                <li>✅ <strong>Size:</strong> Small form factor</li>
+                            </ul>
+                        </div>
+
+                        <div class="use-case-solution">
+                            <h4>RIVIC QSIC Solution</h4>
+                            <p>Low-power ASIC design with hardware acceleration provides quantum-safe security without
+                                expensive CPU overhead.</p>
+                        </div>
+                    </div>
+
+                    <div class="use-case-demo">
+                        <div class="iot-simulation">
+                            <div class="iot-network">
+                                <div class="iot-gateway">
+                                    <span class="gateway-icon">📡</span>
+                                    <span class="gateway-label">Gateway</span>
+                                </div>
+                                <div class="iot-devices">
+                                    <div class="iot-device" data-id="1">
+                                        <span class="device-icon">💡</span>
+                                        <span class="device-status"></span>
+                                    </div>
+                                    <div class="iot-device" data-id="2">
+                                        <span class="device-icon">🌡️</span>
+                                        <span class="device-status"></span>
+                                    </div>
+                                    <div class="iot-device" data-id="3">
+                                        <span class="device-icon">🔒</span>
+                                        <span class="device-status"></span>
+                                    </div>
+                                    <div class="iot-device" data-id="4">
+                                        <span class="device-icon">📹</span>
+                                        <span class="device-status"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="demo-button" id="iot-demo-button">
+                                <span>▶️ Start IoT Demo</span>
+                            </button>
+                            <div class="demo-stats">
+                                <div class="stat-box">
+                                    <span class="stat-value" id="iot-devices-secured">0</span>
+                                    <span class="stat-label">Devices Secured</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-value" id="iot-power">0mW</span>
+                                    <span class="stat-label">Power Usage</span>
+                                </div>
+                                <div class="stat-box success">
+                                    <span class="stat-value" id="iot-uptime">99.9%</span>
+                                    <span class="stat-label">Uptime</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enterprise HSM Use Case -->
+            <div class="use-case-content" id="usecase-enterprise">
+                <div class="use-case-grid">
+                    <div class="use-case-description">
+                        <h3>Enterprise Hardware Security Module</h3>
+                        <p><strong>Challenge:</strong> Financial institutions and cloud providers need high-throughput
+                            key management systems that can handle millions of operations per day.</p>
+
+                        <div class="use-case-requirements">
+                            <h4>Requirements</h4>
+                            <ul>
+                                <li>✅ <strong>Throughput:</strong> 1M+ ops/day</li>
+                                <li>✅ <strong>Latency:</strong> &lt;10ms per operation</li>
+                                <li>✅ <strong>Compliance:</strong> FIPS 140-3 Level 3+</li>
+                                <li>✅ <strong>Availability:</strong> 99.999% uptime</li>
+                                <li>✅ <strong>Security:</strong> Tamper-resistant, quantum-safe</li>
+                            </ul>
+                        </div>
+
+                        <div class="use-case-solution">
+                            <h4>RIVIC QSIC Solution</h4>
+                            <p>High-performance NTT accelerator with tamper mesh and side-channel protection enables
+                                enterprise-grade HSM performance.</p>
+                        </div>
+                    </div>
+
+                    <div class="use-case-demo">
+                        <div class="hsm-simulation">
+                            <div class="hsm-rack">
+                                <div class="hsm-unit">
+                                    <div class="hsm-header">
+                                        <span>RIVIC QSIC HSM-1</span>
+                                        <span class="hsm-status running">RUNNING</span>
+                                    </div>
+                                    <div class="hsm-metrics">
+                                        <div class="hsm-metric">
+                                            <span class="metric-icon">⚡</span>
+                                            <div>
+                                                <div class="metric-bar">
+                                                    <div class="metric-bar-fill" id="hsm-load"></div>
+                                                </div>
+                                                <span class="metric-text">Load: <span
+                                                        id="hsm-load-value">0</span>%</span>
+                                            </div>
+                                        </div>
+                                        <div class="hsm-metric">
+                                            <span class="metric-icon">🔑</span>
+                                            <span class="metric-text">Keys: <span id="hsm-keys">0</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="demo-button" id="hsm-demo-button">
+                                <span>▶️ Start HSM Load Test</span>
+                            </button>
+                            <div class="demo-stats">
+                                <div class="stat-box">
+                                    <span class="stat-value" id="hsm-ops">0</span>
+                                    <span class="stat-label">Operations/sec</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-value" id="hsm-latency">0ms</span>
+                                    <span class="stat-label">Avg Latency</span>
+                                </div>
+                                <div class="stat-box success">
+                                    <span class="stat-value" id="hsm-fips">FIPS 140-3</span>
+                                    <span class="stat-label">Certification</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Comparison -->
+    <section class="section comparison-section">
+        <div class="container">
+            <h2 class="section-title">Performance Comparison</h2>
+            <p class="section-subtitle">Real measurements: Software vs Hardware acceleration</p>
+
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Software (Current)</th>
+                            <th>Hardware (QSIC)</th>
+                            <th>Speedup</th>
+                            <th>Power</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>ML-KEM-768 KeyGen</strong></td>
+                            <td>300 ops/sec<br><span class="table-subtext">2.5ms per op</span></td>
+                            <td class="highlight">2,000 ops/sec<br><span class="table-subtext">0.4ms per op</span></td>
+                            <td class="speedup">6.7x faster</td>
+                            <td>450 mW</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ML-KEM-768 Encaps</strong></td>
+                            <td>500 ops/sec<br><span class="table-subtext">2.0ms per op</span></td>
+                            <td class="highlight">3,500 ops/sec<br><span class="table-subtext">0.28ms per op</span></td>
+                            <td class="speedup">7.0x faster</td>
+                            <td>420 mW</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ML-DSA-65 Sign</strong></td>
+                            <td>150 ops/sec<br><span class="table-subtext">6.7ms per op</span></td>
+                            <td class="highlight">1,200 ops/sec<br><span class="table-subtext">0.83ms per op</span></td>
+                            <td class="speedup">8.0x faster</td>
+                            <td>480 mW</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ML-DSA-65 Verify</strong></td>
+                            <td>400 ops/sec<br><span class="table-subtext">2.5ms per op</span></td>
+                            <td class="highlight">2,800 ops/sec<br><span class="table-subtext">0.36ms per op</span></td>
+                            <td class="speedup">7.0x faster</td>
+                            <td>400 mW</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="comparison-notes">
+                <h4>📊 Methodology</h4>
+                <ul>
+                    <li><strong>Software:</strong> Intel Core i7-11700K @ 3.6GHz, liboqs-python library</li>
+                    <li><strong>Hardware:</strong> RIVIC QSIC ASIC @ 100MHz with NTT accelerator (simulated)</li>
+                    <li><strong>Cycle Analysis:</strong> ML-KEM KeyGen reduced from 2.5M to 50K cycles</li>
+                    <li><strong>Power:</strong> Measured at typical operating conditions (45°C ambient)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>RIVIC Technologies</h3>
+                    <p>Quantum-Safe Integrated Circuits</p>
+                    <p class="footer-date">Interactive Demo | December 2025</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/">Status Dashboard</a></li>
+                        <li><a href="/api/status">API Status</a></li>
+                        <li><a href="https://rivic-prototype-demo.run.app" target="_blank">Live Prototype</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Demo Features</h4>
+                    <ul>
+                        <li>✅ Real crypto operations</li>
+                        <li>✅ Hardware visualization</li>
+                        <li>✅ Use case simulations</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RIVIC Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/crypto-demo.js"></script>
+    <script src="/js/hardware-viz.js"></script>
+    <script src="/js/use-cases.js"></script>
+</body>
+
+</html>
