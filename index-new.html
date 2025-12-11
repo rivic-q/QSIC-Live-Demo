@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIVIC QSIC - Quantum-Safe Cryptography Revolution</title>
+    <meta name="description"
+        content="Revolutionary hardware-accelerated quantum-safe cryptography. 6-8× faster than software. TRL 3.5 → 6.0.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main-new.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <canvas id="quantum-bg"></canvas>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">◆</span>
+                <span class="logo-text">RIVIC QSIC</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="technology.html">Technology</a></li>
+                <li><a href="demo.html">Live Demo</a></li>
+                <li><a href="roadmap.html">Roadmap</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            </ul>
+
+            <button class="mobile-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">⚡</span>
+                    <span>TRL 3.5 → 6.0 | QUANTUM-SAFE REVOLUTION</span>
+                </div>
+
+                <h1 class="hero-title">
+                    The Future of<br>
+                    <span class="gradient-text">Quantum-Safe Security</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Hardware-accelerated post-quantum cryptography. 6-8× faster than software.
+                    Protecting your data from quantum computers.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">6-8×</div>
+                        <div class="stat-label">Faster</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">€250K</div>
+                        <div class="stat-label">EXIST Funding</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Months to ASIC</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">$89.7B</div>
+                        <div class="stat-label">Market 2035</div>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="demo.html" class="btn btn-primary">
+                        <span>Launch Demo</span>
+                        <span class="btn-icon">→</span>
+                    </a>
+                    <a href="technology.html" class="btn btn-secondary">
+                        <span>Explore Technology</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="visual-card">
+                    <canvas id="quantum-cube" width="400" height="400"></canvas>
+                    <div class="visual-stats">
+                        <div class="vis-stat">
+                            <span class="vis-label">ML-KEM-768</span>
+                            <span class="vis-value">2,000 ops/s</span>
+                        </div>
+                        <div class="vis-stat">
+                            <span class="vis-label">ML-DSA-65</span>
+                            <span class="vis-value">1,200 ops/s</span>
+                        </div>
+                        <div class="vis-stat">
+                            <span class="vis-label">Power</span>
+                            <span class="vis-value">450mW</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">THE THREAT</span>
+                <h2>Quantum Computers Will Break<br><span class="highlight">All Current Encryption</span></h2>
+                <p>By 2029, quantum computers will render RSA and ECC obsolete. Organizations must transition to
+                    quantum-safe algorithms now.</p>
+            </div>
+
+            <div class="problem-grid">
+                <div class="problem-card urgent">
+                    <div class="card-icon">🔓</div>
+                    <h3>2029: RSA Broken</h3>
+                    <div class="threat-meter">
+                        <div class="meter-fill" style="width: 90%">
+                            <span>90% Probability</span>
+                        </div>
+                    </div>
+                    <p>IBM's fault-tolerant quantum computer will break RSA-2048 encryption in hours.</p>
+                    <div class="countdown">
+                        <span class="countdown-num">4</span>
+                        <span class="countdown-label">years remaining</span>
+                    </div>
+                </div>
+
+                <div class="problem-card critical">
+                    <div class="card-icon">📡</div>
+                    <h3>Harvest Now, Decrypt Later</h3>
+                    <div class="threat-meter">
+                        <div class="meter-fill critical" style="width: 100%">
+                            <span>Happening Now</span>
+                        </div>
+                    </div>
+                    <p>Attackers are capturing encrypted data today to decrypt with future quantum computers.</p>
+                    <div class="data-flow"></div>
+                </div>
+
+                <div class="problem-card warning">
+                    <div class="card-icon">⏰</div>
+                    <h3>2030: NIST Mandate</h3>
+                    <div class="threat-meter">
+                        <div class="meter-fill warning" style="width: 85%">
+                            <span>Mandatory Migration</span>
+                        </div>
+                    </div>
+                    <p>U.S. federal agencies must migrate to post-quantum cryptography. Commercial adoption follows.</p>
+                    <div class="countdown">
+                        <span class="countdown-num">5</span>
+                        <span class="countdown-label">years to comply</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Preview -->
+    <section class="solution-preview">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <span class="section-tag">OUR SOLUTION</span>
+                    <h2>QSIC: Hardware-Accelerated<br><span class="highlight">Quantum-Safe Cryptography</span></h2>
+                    <p>The only solution that combines NIST-selected post-quantum algorithms with custom ASIC
+                        acceleration.</p>
+
+                    <ul class="feature-list">
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <div>
+                                <strong>ML-KEM-768 & ML-DSA-65</strong>
+                                <p>NIST-standardized lattice-based algorithms</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <div>
+                                <strong>Custom NTT Accelerator</strong>
+                                <p>8 parallel butterfly units @ 100MHz</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <div>
+                                <strong>6-8× Performance Boost</strong>
+                                <p>Real-time cryptography for automotive & IoT</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <div>
+                                <strong>Low Power Consumption</strong>
+                                <p>
+                                    <500mW for battery-powered devices</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="technology.html" class="btn btn-primary">
+                        <span>Deep Dive into Technology</span>
+                        <span class="btn-icon">→</span>
+                    </a>
+                </div>
+
+                <div class="solution-visual">
+                    <div class="arch-diagram">
+                        <div class="arch-layer">
+                            <div class="layer-title">Application</div>
+                            <div class="layer-items">
+                                <span>V2X</span>
+                                <span>IoT</span>
+                                <span>Enterprise</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer highlight">
+                            <div class="layer-title">QSIC Core</div>
+                            <div class="layer-items">
+                                <span>NTT Accelerator</span>
+                                <span>Memory Ctrl</span>
+                                <span>Security</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer">
+                            <div class="layer-title">Silicon</div>
+                            <div class="layer-items">
+                                <span>65nm ASIC</span>
+                                <span>256KB SRAM</span>
+                                <span>TRNG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Secure Your Future?</h2>
+                <p>Join the quantum-safe revolution. Request a demo or discuss investment opportunities.</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-primary btn-large">
+                        <span>Contact Us</span>
+                        <span class="btn-icon">→</span>
+                    </a>
+                    <a href="demo.html" class="btn btn-secondary btn-large">
+                        <span>Try Live Demo</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-icon">◆</span>
+                        <span class="logo-text">RIVIC QSIC</span>
+                    </div>
+                    <p>Revolutionary quantum-safe cryptography with hardware acceleration. Protecting the future, today.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="technology.html">Technology</a></li>
+                        <li><a href="demo.html">Live Demo</a></li>
+                        <li><a href="roadmap.html">Roadmap</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <span class="contact-icon">👤</span>
+                            <span>Revan Ande, Founder</span>
+                        </li>
+                        <li>
+                            <span class="contact-icon">✉</span>
+                            <a href="mailto:rivic.reva.ande@gmail.com">rivic.reva.ande@gmail.com</a>
+                        </li>
+                        <li>
+                            <span class="contact-icon">📍</span>
+                            <span>Berlin, Germany</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 RIVIC Technologies. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main-new.js"></script>
+    <script src="js/quantum-bg.js"></script>
+</body>
+
+</html>
