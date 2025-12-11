@@ -415,8 +415,620 @@
         </div>
     </section>
 
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="demo-section">
+        <div class="container-cyber">
+            <div class="section-header-cyber">
+                <div class="section-badge">
+                    <span class="badge-hex">●</span>
+                    <span>LIVE DEMONSTRATION</span>
+                </div>
+                <h2 class="section-title-cyber">
+                    <span class="glitch-text" data-text="QUANTUM CRYPTO">QUANTUM CRYPTO</span>
+                    IN <span class="gradient-cyber">ACTION</span>
+                </h2>
+                <p class="section-subtitle-cyber">
+                    Experience post-quantum cryptography with real-time hardware acceleration
+                </p>
+            </div>
+
+            <!-- Demo Controls -->
+            <div class="demo-controls">
+                <button class="mode-btn active" data-mode="hardware">
+                    <span class="mode-icon">⚡</span>
+                    <span class="mode-label">HARDWARE MODE</span>
+                    <span class="mode-speed">6-8× FASTER</span>
+                </button>
+                <button class="mode-btn" data-mode="software">
+                    <span class="mode-icon">💻</span>
+                    <span class="mode-label">SOFTWARE MODE</span>
+                    <span class="mode-speed">BASELINE</span>
+                </button>
+            </div>
+
+            <!-- ML-KEM Demo -->
+            <div class="crypto-demo-card">
+                <div class="demo-card-header">
+                    <h3>🔐 ML-KEM-768 - Key Encapsulation</h3>
+                    <div class="demo-badge">NIST STANDARD</div>
+                </div>
+
+                <div class="demo-steps">
+                    <div class="demo-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Generate Key Pair</h4>
+                            <button class="btn-demo" id="mlkem-keygen">
+                                <span class="btn-icon">▶</span>
+                                GENERATE KEYS
+                            </button>
+                            <div class="demo-output" id="mlkem-keys" style="display:none;">
+                                <div class="output-item">
+                                    <span class="output-label">Public Key (1,184 bytes)</span>
+                                    <code class="output-value" id="mlkem-pk"></code>
+                                </div>
+                                <div class="output-item">
+                                    <span class="output-label">Private Key (2,400 bytes)</span>
+                                    <code class="output-value" id="mlkem-sk"></code>
+                                </div>
+                                <div class="performance-stat">
+                                    <span class="stat-icon">⚡</span>
+                                    <span class="stat-text">Execution Time: <strong
+                                            id="mlkem-time">0.5ms</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Encapsulate Secret</h4>
+                            <button class="btn-demo" id="mlkem-encaps" disabled>
+                                <span class="btn-icon">▶</span>
+                                ENCAPSULATE
+                            </button>
+                            <div class="demo-output" id="mlkem-encaps-output" style="display:none;">
+                                <div class="output-item">
+                                    <span class="output-label">Ciphertext (1,088 bytes)</span>
+                                    <code class="output-value" id="mlkem-ct"></code>
+                                </div>
+                                <div class="output-item">
+                                    <span class="output-label">Shared Secret (32 bytes)</span>
+                                    <code class="output-value" id="mlkem-ss"></code>
+                                </div>
+                                <div class="performance-stat">
+                                    <span class="stat-icon">⚡</span>
+                                    <span class="stat-text">Execution Time: <strong
+                                            id="mlkem-encaps-time">0.28ms</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ML-DSA Demo -->
+            <div class="crypto-demo-card">
+                <div class="demo-card-header">
+                    <h3>✍️ ML-DSA-65 - Digital Signatures</h3>
+                    <div class="demo-badge">NIST STANDARD</div>
+                </div>
+
+                <div class="demo-steps">
+                    <div class="demo-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Sign Message</h4>
+                            <textarea class="demo-input" id="mldsa-message"
+                                placeholder="Enter message to sign...">RIVIC QSIC - Quantum-Safe Revolution 🚀</textarea>
+                            <button class="btn-demo" id="mldsa-sign">
+                                <span class="btn-icon">▶</span>
+                                SIGN MESSAGE
+                            </button>
+                            <div class="demo-output" id="mldsa-sign-output" style="display:none;">
+                                <div class="output-item">
+                                    <span class="output-label">Signature (3,309 bytes)</span>
+                                    <code class="output-value" id="mldsa-sig"></code>
+                                </div>
+                                <div class="output-item">
+                                    <span class="output-label">Public Key (1,952 bytes)</span>
+                                    <code class="output-value" id="mldsa-pk"></code>
+                                </div>
+                                <div class="performance-stat">
+                                    <span class="stat-icon">⚡</span>
+                                    <span class="stat-text">Execution Time: <strong
+                                            id="mldsa-time">0.83ms</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Verify Signature</h4>
+                            <button class="btn-demo" id="mldsa-verify" disabled>
+                                <span class="btn-icon">▶</span>
+                                VERIFY
+                            </button>
+                            <div class="demo-output" id="mldsa-verify-output" style="display:none;">
+                                <div class="verify-result" id="verify-status">
+                                    <span class="verify-icon">✓</span>
+                                    <span class="verify-text">SIGNATURE VALID</span>
+                                </div>
+                                <div class="performance-stat">
+                                    <span class="stat-icon">⚡</span>
+                                    <span class="stat-text">Execution Time: <strong
+                                            id="mldsa-verify-time">0.36ms</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="roadmap-section">
+        <div class="container-cyber">
+            <div class="section-header-cyber">
+                <div class="section-badge">
+                    <span class="badge-hex">■</span>
+                    <span>DEVELOPMENT TIMELINE</span>
+                </div>
+                <h2 class="section-title-cyber">
+                    18-MONTH <span class="gradient-cyber">ROADMAP</span>
+                </h2>
+                <p class="section-subtitle-cyber">
+                    From TRL 3.5 to TRL 6.0 - FPGA to ASIC with EXIST funding
+                </p>
+            </div>
+
+            <div class="timeline-cyber">
+                <!-- Month 0-3 -->
+                <div class="timeline-milestone">
+                    <div class="milestone-marker">
+                        <div class="marker-dot start"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    <div class="milestone-content">
+                        <div class="milestone-header">
+                            <span class="milestone-month">MONTH 0-3</span>
+                            <span class="milestone-budget">€75K</span>
+                        </div>
+                        <h3>FPGA Prototype Development</h3>
+                        <ul class="milestone-tasks">
+                            <li>✓ Order Xilinx ZCU102 FPGA board</li>
+                            <li>✓ Set up development environment</li>
+                            <li>✓ Synthesize RTL design to FPGA</li>
+                            <li>✓ Initial performance validation</li>
+                        </ul>
+                        <div class="milestone-deliverable">
+                            <strong>Deliverable:</strong> Working FPGA prototype, 2,000 ops/sec validated
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 3-6 -->
+                <div class="timeline-milestone">
+                    <div class="milestone-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    <div class="milestone-content">
+                        <div class="milestone-header">
+                            <span class="milestone-month">MONTH 3-6</span>
+                            <span class="milestone-budget">€50K</span>
+                        </div>
+                        <h3>FPGA Optimization & Testing</h3>
+                        <ul class="milestone-tasks">
+                            <li>▶ Optimize NTT butterfly units</li>
+                            <li>▶ Power consumption analysis</li>
+                            <li>▶ Side-channel attack testing</li>
+                            <li>▶ Performance benchmarking</li>
+                        </ul>
+                        <div class="milestone-deliverable">
+                            <strong>Deliverable:</strong> Optimized FPGA, <500mW power, side-channel protected </div>
+                        </div>
+                    </div>
+
+                    <!-- Month 6-9 -->
+                    <div class="timeline-milestone">
+                        <div class="milestone-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line"></div>
+                        </div>
+                        <div class="milestone-content">
+                            <div class="milestone-header">
+                                <span class="milestone-month">MONTH 6-9</span>
+                                <span class="milestone-budget">€80K</span>
+                            </div>
+                            <h3>ASIC Design & Tape-out</h3>
+                            <ul class="milestone-tasks">
+                                <li>⏳ Convert FPGA design to ASIC RTL</li>
+                                <li>⏳ Synthesis for SkyWater 65nm PDK</li>
+                                <li>⏳ Design verification (DRC/LVS)</li>
+                                <li>⏳ Submit to MPW shuttle</li>
+                            </ul>
+                            <div class="milestone-deliverable">
+                                <strong>Deliverable:</strong> ASIC tape-out complete, 50 prototype dies ordered
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Month 9-15 -->
+                    <div class="timeline-milestone">
+                        <div class="milestone-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line"></div>
+                        </div>
+                        <div class="milestone-content">
+                            <div class="milestone-header">
+                                <span class="milestone-month">MONTH 9-15</span>
+                                <span class="milestone-budget">€30K</span>
+                            </div>
+                            <h3>Silicon Fabrication & Testing</h3>
+                            <ul class="milestone-tasks">
+                                <li>⏳ Wait for fabrication (4 months)</li>
+                                <li>⏳ Receive dies from foundry</li>
+                                <li>⏳ Package and test silicon</li>
+                                <li>⏳ Validate performance on real silicon</li>
+                            </ul>
+                            <div class="milestone-deliverable">
+                                <strong>Deliverable:</strong> Working ASIC silicon, lab-measured performance
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Month 15-18 -->
+                    <div class="timeline-milestone">
+                        <div class="milestone-marker">
+                            <div class="marker-dot end"></div>
+                        </div>
+                        <div class="milestone-content">
+                            <div class="milestone-header">
+                                <span class="milestone-month">MONTH 15-18</span>
+                                <span class="milestone-budget">€15K</span>
+                            </div>
+                            <h3>Pilot Customers & TRL 6</h3>
+                            <ul class="milestone-tasks">
+                                <li>⏳ Deploy to 3+ pilot customers</li>
+                                <li>⏳ Collect feedback and metrics</li>
+                                <li>⏳ FIPS 140-3 pre-assessment</li>
+                                <li>⏳ Prepare for Series A fundraising</li>
+                            </ul>
+                            <div class="milestone-deliverable milestone-final">
+                                <strong>🎯 GOAL ACHIEVED:</strong> TRL 6.0 - Prototype demonstrated in relevant
+                                environment
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-summary">
+                    <div class="summary-stat">
+                        <div class="summary-value">€250K</div>
+                        <div class="summary-label">Total Budget</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-value">18</div>
+                        <div class="summary-label">Months</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-value">TRL 6</div>
+                        <div class="summary-label">Target Level</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-value">3+</div>
+                        <div class="summary-label">Pilot Customers</div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Investment Section -->
+    <section id="invest" class="invest-section">
+        <div class="container-cyber">
+            <div class="section-header-cyber">
+                <div class="section-badge">
+                    <span class="badge-hex">★</span>
+                    <span>INVESTMENT OPPORTUNITY</span>
+                </div>
+                <h2 class="section-title-cyber">
+                    EXIST PHASE 1: <span class="gradient-cyber">€250K FUNDING</span>
+                </h2>
+                <p class="section-subtitle-cyber">
+                    Transform quantum threat into market opportunity - Join the revolution
+                </p>
+            </div>
+
+            <!-- Funding Breakdown -->
+            <div class="funding-breakdown">
+                <div class="funding-viz">
+                    <svg viewBox="0 0 200 200" class="funding-donut">
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(0,240,255,0.1)" stroke-width="40" />
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="url(#grad1)" stroke-width="40"
+                            stroke-dasharray="201 502" stroke-dashoffset="0" transform="rotate(-90 100 100)" />
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="url(#grad2)" stroke-width="40"
+                            stroke-dasharray="125 578" stroke-dashoffset="-201" transform="rotate(-90 100 100)" />
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="url(#grad3)" stroke-width="40"
+                            stroke-dasharray="100 602" stroke-dashoffset="-326" transform="rotate(-90 100 100)" />
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="url(#grad4)" stroke-width="40"
+                            stroke-dasharray="75 627" stroke-dashoffset="-426" transform="rotate(-90 100 100)" />
+
+                        <defs>
+                            <linearGradient id="grad1">
+                                <stop stop-color="#ff006e" />
+                                <stop offset="1" stop-color="#b300ff" />
+                            </linearGradient>
+                            <linearGradient id="grad2">
+                                <stop stop-color="#00f0ff" />
+                                <stop offset="1" stop-color="#00ff41" />
+                            </linearGradient>
+                            <linearGradient id="grad3">
+                                <stop stop-color="#ffea00" />
+                                <stop offset="1" stop-color="#ff6b00" />
+                            </linearGradient>
+                            <linearGradient id="grad4">
+                                <stop stop-color="#b300ff" />
+                                <stop offset="1" stop-color="#ff006e" />
+                            </linearGradient>
+                        </defs>
+
+                        <text x="100" y="95" text-anchor="middle" class="donut-value">€250K</text>
+                        <text x="100" y="115" text-anchor="middle" class="donut-label">TOTAL</text>
+                    </svg>
+                </div>
+
+                <div class="funding-items">
+                    <div class="funding-item">
+                        <div class="item-color" style="background: linear-gradient(135deg, #ff006e, #b300ff);"></div>
+                        <div class="item-details">
+                            <div class="item-title">ASIC Development</div>
+                            <div class="item-amount">€100,000 <span class="item-percent">(40%)</span></div>
+                            <div class="item-desc">Tape-out, fabrication, 50 prototype dies</div>
+                        </div>
+                    </div>
+
+                    <div class="funding-item">
+                        <div class="item-color" style="background: linear-gradient(135deg, #00f0ff, #00ff41);"></div>
+                        <div class="item-details">
+                            <div class="item-title">Personnel</div>
+                            <div class="item-amount">€62,500 <span class="item-percent">(25%)</span></div>
+                            <div class="item-desc">CTO, COO co-founders, engineering support</div>
+                        </div>
+                    </div>
+
+                    <div class="funding-item">
+                        <div class="item-color" style="background: linear-gradient(135deg, #ffea00, #ff6b00);"></div>
+                        <div class="item-details">
+                            <div class="item-title">Testing & Validation</div>
+                            <div class="item-amount">€50,000 <span class="item-percent">(20%)</span></div>
+                            <div class="item-desc">FPGA board, testing equipment, side-channel analysis</div>
+                        </div>
+                    </div>
+
+                    <div class="funding-item">
+                        <div class="item-color" style="background: linear-gradient(135deg, #b300ff, #ff006e);"></div>
+                        <div class="item-details">
+                            <div class="item-title">Operations</div>
+                            <div class="item-amount">€37,500 <span class="item-percent">(15%)</span></div>
+                            <div class="item-desc">EDA licenses, office, legal, marketing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Investment Highlights -->
+            <div class="invest-highlights">
+                <div class="highlight-card">
+                    <div class="highlight-icon">📈</div>
+                    <h3>Market Opportunity</h3>
+                    <div class="highlight-value">$89.7B</div>
+                    <p>Quantum-safe market by 2035 (51.97% CAGR)</p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">🎯</div>
+                    <h3>Competitive Advantage</h3>
+                    <div class="highlight-value">6-8×</div>
+                    <p>Only hardware-accelerated solution on market</p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">🚀</div>
+                    <h3>Series A Ready</h3>
+                    <div class="highlight-value">€3.4M</div>
+                    <p>Fundraising target after EXIST (18 months)</p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">👥</div>
+                    <h3>Partnerships</h3>
+                    <div class="highlight-value">TU Berlin</div>
+                    <p>Academic collaboration with Dr. Jean-Pierre Seifert</p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-section">
+                <h3>Get in Touch</h3>
+                <p>Contact us to discuss investment opportunities, partnerships, and pilot programs</p>
+
+                <form action="https://formsubmit.co/rivic.reva.ande@gmail.com" method="POST" class="cyber-contact-form">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New Contact from RIVIC QSIC Website">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" placeholder="Company Name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+49 XXX XXXX">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interest">Interest</label>
+                        <select id="interest" name="interest">
+                            <option value="Investment">Investment Opportunity</option>
+                            <option value="Partnership">Partnership</option>
+                            <option value="Pilot">Pilot Program</option>
+                            <option value="Demo">Request Demo</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5"
+                            placeholder="Tell us about your interest in RIVIC QSIC..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-cyber btn-primary btn-submit">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">
+                            <span class="btn-icon">▶</span>
+                            SEND MESSAGE
+                        </span>
+                    </button>
+                </form>
+
+                <div class="contact-info-alt">
+                    <p>Or reach out directly:</p>
+                    <a href="mailto:rivic.reva.ande@gmail.com" class="contact-link">
+                        <span class="link-icon">✉</span>
+                        rivic.reva.ande@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/revan-sai-ande-988504127/" target="_blank"
+                        class="contact-link">
+                        <span class="link-icon">in</span>
+                        LinkedIn: Revan Ande
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="invest-cta">
+                <h3>Ready to Join the Quantum Revolution?</h3>
+                <p>Contact us to discuss investment opportunities and pilot programs</p>
+                <div class="cta-buttons">
+                    <a href="mailto:rivic.reva.ande@gmail.com" class="btn-cyber btn-primary">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">
+                            <span class="btn-icon">✉</span>
+                            CONTACT US
+                        </span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/revan-sai-ande-988504127/" target="_blank"
+                        class="btn-cyber btn-secondary">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">
+                            <span class="btn-icon">in</span>
+                            CONNECT ON LINKEDIN
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-cyber">
+        <div class="container-cyber">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-text" data-text="RIVIC QSIC">RIVIC QSIC</span>
+                        <div class="logo-tagline">QUANTUM DEFENSE SYSTEM</div>
+                    </div>
+                    <p class="footer-desc">
+                        Revolutionary quantum-safe cryptography with custom hardware acceleration.
+                        Protecting the future, today.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#tech">Technology</a></li>
+                        <li><a href="#demo">Live Demo</a></li>
+                        <li><a href="#roadmap">Roadmap</a></li>
+                        <li><a href="#invest">Invest</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Technology</h4>
+                    <ul class="footer-links">
+                        <li><a href="#tech">ML-KEM-768</a></li>
+                        <li><a href="#tech">ML-DSA-65</a></li>
+                        <li><a href="#tech">NTT Accelerator</a></li>
+                        <li><a href="#tech">65nm ASIC</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <span class="contact-icon">👤</span>
+                            <span>Revan Ande, Founder</span>
+                        </li>
+                        <li>
+                            <span class="contact-icon">✉</span>
+                            <a href="mailto:rivic.reva.ande@gmail.com">rivic.reva.ande@gmail.com</a>
+                        </li>
+                        <li>
+                            <span class="contact-icon">in</span>
+                            <a href="https://www.linkedin.com/in/revan-sai-ande-988504127/" target="_blank">LinkedIn</a>
+                        </li>
+                        <li>
+                            <span class="contact-icon">⚡</span>
+                            <span>Berlin, Germany</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 RIVIC Technologies. All rights reserved.</p>
+                    <p class="footer-status">
+                        <span class="status-dot pulse-green"></span>
+                        TRL 3.5 | EXIST Application Ready
+                    </p>
+                </div>
+                <div class="footer-legal">
+                    <a href="#privacy">Privacy Policy</a>
+                    <span class="divider">|</span>
+                    <a href="#terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="js/cyberpunk.js"></script>
-    <script src="js/visualizations.js"></script>
+    <script src="js/demo.js"></script>
 </body>
 
 </html>
